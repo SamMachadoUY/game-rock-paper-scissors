@@ -13,3 +13,24 @@ function computerPlay(){
     return random;
 }
 alert(computerPlay());
+
+
+function playerSelection(){
+    let opSelect = prompt("choise rock, paper or scissors");
+    opSelect = opSelect.toLowerCase();
+    
+    if(opSelect == 'rock'){
+      
+    }else if(opSelect == 'paper'){
+       
+    }else if(opSelect == 'scissor'){
+       
+    }else{
+        console.log('fail');
+    }
+    
+    return opSelect;
+}
+alert(playerSelection());
+
+
