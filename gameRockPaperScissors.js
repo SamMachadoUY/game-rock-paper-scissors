@@ -2,19 +2,18 @@ console.log('hola');
 
 function computerSelect(){
     let random = Math.floor((Math.random()*3)+1);
-    
-    if(random === 1){
-        console.log('rock');
-    }else if(random === 2){
-        console.log('Paper');
-    }else{
-        console.log('Scissor');
-    }
-    
-    return random;
-}
-alert(computerSelect());
 
+    if(random === 1){
+        //console.log('rock');
+        return 'rock';
+    }else if(random === 2){
+        //console.log('Paper');
+        return 'paper';
+    }else{
+        //console.log('Scissor');
+        return 'scissor';
+    }  
+}
 
 function playerSelect(){
     let opSelect = prompt("choise rock, paper or scissor");
@@ -32,16 +31,14 @@ function playerSelect(){
     
     return opSelect;
 }
-alert(playerSelect());
 
 function playRound(computerSelect, playerSelect){
     let comput = computerSelect;
     let player = playerSelect;
 
-    if(((comput == 1 && player == 'rock')||(comput == 2 && player == 'paper')||(comput == 3 && player == 'scissor'))){
+    if(comput == player){
         console.log('TIE!');
     //TIE
-
 
     }else if(comput == 'rock' && player == 'paper'){
         console.log('you win!');
@@ -51,7 +48,6 @@ function playRound(computerSelect, playerSelect){
         console.log('you lose!');
     //rock scissor
 
-
     }else if(comput == 'paper' && player == 'rock'){
     console.log('you win!');
     //paper rock
@@ -59,7 +55,6 @@ function playRound(computerSelect, playerSelect){
     }else if(comput == 'paper' && player == 'scissor'){
     console.log('you lose!');
     //paper scissor
-
 
     }else if(comput == 'scissor' && player == 'rock'){
     console.log('you win!');
@@ -71,7 +66,12 @@ function playRound(computerSelect, playerSelect){
     }else{
         console.log('failed if');
     }
-    return;
 }
 
-console.log(playRound());
+let valueComputerSelect = computerSelect();
+let valuePlayerSelect = playerSelect();
+playRound(valueComputerSelect, valuePlayerSelect);
+
+valueComputerSelect = computerSelect();
+valuePlayerSelect = playerSelect();
+playRound(valueComputerSelect, valuePlayerSelect);
