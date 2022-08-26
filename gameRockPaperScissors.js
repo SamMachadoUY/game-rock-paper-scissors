@@ -130,6 +130,7 @@ const btnRock = document.createElement('button');
 
     btns.append(btnRock);
 
+// BUTTON PAPER
 const btnPaper = document.createElement('button');
     
     btnPaper.textContent = 'PAPER';
@@ -139,6 +140,7 @@ const btnPaper = document.createElement('button');
 
     btns.append(btnPaper);
 
+// BUTTON SCISSOR
 const btnScissor = document.createElement('button');
     btnScissor.textContent = 'SCISSOR';
     btnScissor.id = 'scissor';
