@@ -75,6 +75,7 @@ function playRound(computerSelect, playerSelect){
     }
 }
 
+/*
 function game(){
     let a;
     let b;
@@ -91,11 +92,56 @@ function game(){
             cuantasPerdio=cuantasPerdio+1;
        }else{
            cuantasEmpato=cuantasEmpato+1;
-       }
-      
+       } 
     }
+   
+
     console.log('el jugador gano: '+cuantasGano);
     console.log('el jugador perdio: '+cuantasPerdio);
     console.log('el jugador empato: '+cuantasEmpato);
 
 }
+*/
+
+// CONTAINER AND TITLE
+const container = document.querySelector('.container');
+    document.body.appendChild(container);
+
+const titleGame = document.createElement('div');
+    titleGame.className = 'titleGame';
+    titleGame.textContent = 'ROCK PAPER SCISSORS';
+    
+    container.appendChild(titleGame);
+    
+
+
+// BUTTONS
+const btns = document.querySelector('.btns');
+    container.appendChild(btns);
+
+
+
+// BUTTON ROCK
+const btnRock = document.createElement('button');
+    
+    btnRock.textContent = 'ROCK';
+    btnRock.id = 'rock';
+    btnRock.className = 'btn';
+
+    btns.append(btnRock);
+
+const btnPaper = document.createElement('button');
+    
+    btnPaper.textContent = 'PAPER';
+    btnPaper.id = 'paper';
+    btnPaper.className = 'btn';
+    
+
+    btns.append(btnPaper);
+
+const btnScissor = document.createElement('button');
+    btnScissor.textContent = 'SCISSOR';
+    btnScissor.id = 'scissor';
+    btnScissor.className = 'btn';
+
+    btns.append(btnScissor);
