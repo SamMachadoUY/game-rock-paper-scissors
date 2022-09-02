@@ -1,5 +1,3 @@
-console.log('Rock, Paper or Scissor');
-
 function computerSelect(){
     let random = Math.floor((Math.random()*3)+1);
 
@@ -14,116 +12,77 @@ function computerSelect(){
         return 'scissor';
     }  
 }
-
-function playerSelect(){
-    let opSelect = prompt("choise rock, paper or scissor");
-    opSelect = opSelect.toLowerCase();
-    
-    if(opSelect == 'rock'){
-      
-    }else if(opSelect == 'paper'){
-       
-    }else if(opSelect == 'scissor'){
-       
-    }else{
-        console.log('fail');
-    }
-    
-    return opSelect;
-}
+  
 
 function playRound(computerSelect, playerSelect){
     let comput = computerSelect;
     let player = playerSelect;
-
+    let resultado = document.querySelector('#mostrarResult');
+        
+    
     if(comput == player){
-        console.log('TIE!');
+        resultado.textContent='TIE!!!';
         return 'empate';
         //TIE
 
     }else if(comput == 'rock' && player == 'paper'){
-        console.log('you win!');
+        resultado.textContent='WIN!!!';
         return 'ganaste';
         //rock paper
 
     }else if(comput == 'rock' && player == 'scissor'){
-        console.log('you lose!');
+        resultado.textContent='LOSE!!!';
         return 'perdiste';
         //rock scissor
 
     }else if(comput == 'paper' && player == 'rock'){
-        console.log('you win!');
+        resultado.textContent='WIN!!!';
         return 'ganaste';
         //paper rock
 
     }else if(comput == 'paper' && player == 'scissor'){
-        console.log('you lose!');
+        resultado.textContent='LOSE!!!';
         return 'perdiste';
         //paper scissor
 
     }else if(comput == 'scissor' && player == 'rock'){
-        console.log('you win!');
+        resultado.textContent='WIN!!!';
         return 'ganaste';
         //scissor rock
 
     }else if(comput == 'scissor' && player == 'paper'){
-        console.log('you lose!');
+        resultado.textContent='LOSE!!!';
         return 'perdiste';
         //scissor paper
+
     }else{
         console.log('failed if');
     }
 }
 
-/*
-function game(){
-    let a;
-    let b;
-    let cuantasGano=0, cuantasPerdio=0, cuantasEmpato=0, resultadoRonda;
-
-    for(let i = 1; i<=5 ; i++){  
-       a = computerSelect();
-       b = playerSelect();
-       
-       resultadoRonda = playRound(a, b);
-       if(resultadoRonda=='ganaste'){
-           cuantasGano=cuantasGano+1;
-       }else if(resultadoRonda=='perdiste'){
-            cuantasPerdio=cuantasPerdio+1;
-       }else{
-           cuantasEmpato=cuantasEmpato+1;
-       } 
-    }
-   
-
-    console.log('el jugador gano: '+cuantasGano);
-    console.log('el jugador perdio: '+cuantasPerdio);
-    console.log('el jugador empato: '+cuantasEmpato);
-
-}
-*/
-
 // CONTAINER AND TITLE
-const container = document.querySelector('.container');
-    document.body.appendChild(container);
+const container = document.createElement('div');
+    container.className='container';
+
+    document.body.append(container);
 
 const titleGame = document.createElement('div');
     titleGame.className = 'titleGame';
     titleGame.textContent = 'ROCK PAPER SCISSORS';
     
     container.appendChild(titleGame);
-    
 
 
 // BUTTONS
-const btns = document.querySelector('.btns');
+const btns = document.createElement('div');
+    btns.id = 'btns';
+    btns.className='btns';
+
     container.appendChild(btns);
 
 
-
 // BUTTON ROCK
-const btnRock = document.createElement('button');
-    
+const btnRock = document.createElement('button'); 
     btnRock.textContent = 'ROCK';
     btnRock.id = 'rock';
     btnRock.className = 'btn';
@@ -132,13 +91,12 @@ const btnRock = document.createElement('button');
 
 // BUTTON PAPER
 const btnPaper = document.createElement('button');
-    
     btnPaper.textContent = 'PAPER';
     btnPaper.id = 'paper';
     btnPaper.className = 'btn';
     
-
     btns.append(btnPaper);
+
 
 // BUTTON SCISSOR
 const btnScissor = document.createElement('button');
@@ -147,3 +105,18 @@ const btnScissor = document.createElement('button');
     btnScissor.className = 'btn';
 
     btns.append(btnScissor);
+
+const mostrarResultado = document.createElement('div');
+    mostrarResultado.id='mostrarResult';
+
+    container.appendChild(mostrarResultado);
+
+    
+const buttonSelections = document.querySelectorAll('.btn');
+
+// EVENTS
+buttonSelections.forEach(boton => boton.addEventListener('click', function(e){
+    let playerSelection = e.target.textContent.toLowerCase();
+    let compuRandom = computerSelect();
+    playRound(compuRandom, playerSelection);
+}));
